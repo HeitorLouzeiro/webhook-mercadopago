@@ -5,7 +5,7 @@ import mercadopago
 from django.http import HttpResponse, JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 
-from .models import Notification
+from .models import Notification, Payments
 
 sdk = mercadopago.SDK(os.environ.get('ACCESS_TOKEN'))
 
@@ -21,7 +21,7 @@ def methodPix(request):
         "transaction_amount": 100,
         "description": "Título do produto",
         "payment_method_id": "pix",
-        "notification_url": "https://ebd6-45-237-1-170.ngrok-free.app/notification",
+        "notification_url": "https://a0f8-45-237-1-170.ngrok-free.app/notification",
         "payer": {
             "email": "UserTest@gmail.com",
             "first_name": "Test",
@@ -43,6 +43,22 @@ def methodPix(request):
 
     payment_response = sdk.payment().create(payment_data)
     payment = payment_response["response"]
+    paymentsave = Payments(
+        first_name=payment["payer"]["first_name"],
+        last_name=payment["payer"]["last_name"],
+        email=payment["payer"]["email"],
+        idetification_type=payment["payer"]["identification"]["type"],
+        idetification_number=payment["payer"]["identification"]["number"],
+        payment_id=payment["id"],
+        description=payment["description"],
+        date_approved=payment["date_approved"],
+        date_of_expiration=payment["date_of_expiration"],
+        payment_method_id=payment["payment_method_id"],
+        status=payment["status"],
+        amount=payment["transaction_amount"],
+    )
+    paymentsave.save()
+
     return JsonResponse(payment, safe=False)
 
 
