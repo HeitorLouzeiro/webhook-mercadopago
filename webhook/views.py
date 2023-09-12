@@ -21,7 +21,7 @@ def methodPix(request):
         "transaction_amount": 100,
         "description": "Título do produto",
         "payment_method_id": "pix",
-        "notification_url": "https://a0f8-45-237-1-170.ngrok-free.app/notification",
+        "notification_url": "https://602d-45-237-1-170.ngrok-free.app/notification",
         "payer": {
             "email": "UserTest@gmail.com",
             "first_name": "Test",
@@ -53,6 +53,7 @@ def methodPix(request):
         description=payment["description"],
         date_approved=payment["date_approved"],
         date_of_expiration=payment["date_of_expiration"],
+        date_last_updated=payment["date_last_updated"],
         payment_method_id=payment["payment_method_id"],
         status=payment["status"],
         amount=payment["transaction_amount"],
@@ -75,3 +76,20 @@ def notification(request):
         return HttpResponse(status=200)
 
     return HttpResponse(status=404)
+
+
+def paymentStatus(request):
+    payment_id = 1317778667
+    payment_data = {
+        "status": "cancelled"
+    }
+    payment_response = sdk.payment().update(payment_id, payment_data)
+    payment = payment_response["response"]
+    return JsonResponse(payment, safe=False)
+
+
+def paymentGetPayment(request):
+    payment_id = 1317778667
+    payment_response = sdk.payment().get(payment_id)
+    payment = payment_response["response"]
+    return JsonResponse(payment, safe=False)
