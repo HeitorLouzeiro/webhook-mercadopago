@@ -56,7 +56,7 @@ ROOT_URLCONF = 'settings.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR/'webhook/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

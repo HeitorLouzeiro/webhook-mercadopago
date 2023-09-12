@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebHook - Mercado Pago</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+<body>
+    <div class="conteiner text-center">
+        <h1>Webhook learning - Mercado Pago</h1>
+        <hr>
+        <h2>Prerequisites</h2>
+        <p>For Transparent Checkout integration, it is important to meet the requirements shown here.</p>
+        <a href="https://www.mercadopago.com.br/developers/pt/docs/checkout-api/prerequisites" class="btn btn-primary btn-lg" target="_blank">Click me</a>
+        <hr>
+        <h2>Credentials</h2>
+        <p>Credentials are unique keys provided by the paid market so that we can configure our integrations.</p>
+        <a href="https://www.mercadopago.com.br/developers/pt/docs/checkout-api/additional-content/your-integrations/credentials" class="btn btn-primary btn-lg" target="_blank">Credentials Tutorial</a>
+        <hr>
+        <p>Webhook is a tool that allows us to receive notifications of events that occur in our Mercado Pago account. These notifications are sent to a URL that we define.</p>
+        <p>To be able to receive event notifications from Mercado Pago, we must create a webhook and define the URL where we want the notifications to be sent.</p>
+        <p>To create a webhook, we must go to the configuration section of our Mercado Pago account and go to the Webhooks section.</p>
+        <p>When we are in the Webhooks section, we must click on the "Create Webhook" button.</p>
+        <a href="https://www.mercadopago.com.br/developers/pt/docs/checkout-api/additional-content/your-integrations/notifications/webhooks" class="btn btn-primary btn-lg" target="_blank">Webhooks Tutorial</a>
+        <p>In the window that opens, we must define the URL where we want notifications to be sent and select the events from which we want to receive notifications.</p>
+        <p>After we create the webhook, Mercado Pago will send us a test notification at the URL we defined. This notification will reach us the moment we create the webhook.</p>
+        <p>To be able to receive event notifications from Mercado Pago, we must create a webhook and define the URL where we want the notifications to be sent.</p>    
+        <hr>
+        <h2>Ngrok</h2>
+        <p>Ngrok is a tool that allows you to create secure tunnels to locally expose a web server, so that we can receive responses that come from webhoork.</p>
+        <p>Crie sua conta na ngrok</p>
+        <a href="https://ngrok.com/" class="btn btn-primary btn-lg" target="_blank">Ngrok Site</a>
+        <p><b>Install the library in the virtual environment.</b></p>
+        <p>Download ngrok</p>
+        <P>COMMAND: <b>pip install pyngrok</b></P>
+        <p>Connect your ngrok account with your computer</p>
+        <p>COMMAND: <b>ngrok config add-authtoken YOUT-TOKEN</b></p>
+        <p>Run ngrok</p>
+        <p>COMMAND: <b>ngrok http 80</b></p>
+        <p>Copy the URL that ngrok generated for you and paste it into the webhook configuration.</p>
+        <p>Example: <b>https://f0b9-2804-14c-1c1-1c1-1c1-1c1-1c1.ngrok-free.app</b></p>
+        <p>After you have configured the webhook, you can test it by making a payment.</p>
+        <p>When you make a payment, Mercado Pago will send you a notification to the URL you defined.</p>
+        <p>When you receive the notification, you can see the data that Mercado Pago sent you.</p>
+        <p>Example:</p>
+        <p><b>https://f0b9-2804-14c-1c1-1c1-1c1-1c1-1c1.ngrok-free.app/notification</b></p>
+        <p>Start the local server on port 80 to receive notifications on another terminal.</p>
+        <p>COMMAND: <b>python manage.py runserver 127.0.0.1:80</b></p>
+        <p><b>OBS: have the ngrock server and the django server started to work correctly.</b></p>
+        <hr>
+        <h2>Create payment in Test mode</h2>
+        <p>When we are in test mode, we can create payments without having to use real money.</p>
+        <a href="" class="btn btn-primary btn-lg">Payment Test</a>
+        <hr>
+        <br>
+        <br>
+        <br>
+
+
+
+
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+</html>
