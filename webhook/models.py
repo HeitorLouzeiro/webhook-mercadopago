@@ -24,6 +24,7 @@ class Payments(models.Model):
     date_approved = models.DateTimeField(null=True, blank=True)
     date_created = models.DateTimeField(auto_now_add=True)
     date_of_expiration = models.DateTimeField(null=True, blank=True)
+    date_last_updated = models.DateTimeField(null=True, blank=True)
     payment_method_id = models.CharField(max_length=10)
     status = models.CharField(max_length=10)
     amount = models.DecimalField(max_digits=10, decimal_places=2)
