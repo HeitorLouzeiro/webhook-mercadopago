@@ -35,7 +35,11 @@
                 {% if payment.status == 'cancelled' %}
                     <span class="badge bg-danger">{{ payment.status }}</span>
                 {% elif payment.status == 'pending' %}
-                    <span class="badge bg-warning">{{ payment.status }}</span>
+                    <button class="badge bg-warning">
+                        <a href="{% url 'paymentStatus' %}?payment_id={{ payment.payment_id }}" class="text-decoration-none text-dark">
+                            {{ payment.status }}
+                        </a>
+                    </button>
                 {% else %}
                     <span class="badge bg-success">{{ payment.status }}</span>
                 {% endif %}

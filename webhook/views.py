@@ -32,7 +32,7 @@ def methodPix(request):
         "transaction_amount": 100,
         "description": "Título do produto",
         "payment_method_id": "pix",
-        "notification_url": "https://602d-45-237-1-170.ngrok-free.app/notification",
+        "notification_url": "https://b19a-45-237-1-170.ngrok-free.app/notification",
         "payer": {
             "email": "UserTest@gmail.com",
             "first_name": "Test",
@@ -90,13 +90,15 @@ def notification(request):
 
 
 def paymentStatus(request):
-    payment_id = 1317778667
+
+    payment_id = request.GET.get('payment_id')
     payment_data = {
         "status": "cancelled"
     }
     payment_response = sdk.payment().update(payment_id, payment_data)
     payment = payment_response["response"]
-    return JsonResponse(payment, safe=False)
+
+    return redirect('payments')
 
 
 def paymentGetPayment(request):
