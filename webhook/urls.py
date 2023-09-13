@@ -7,7 +7,7 @@ urlpatterns = [
     path('payments/', views.payments, name='payments'),
     path('method-pix/', views.methodPix, name='methodPix'),
     path('notification', views.notification, name='notification'),
-    path('payment-status/', views.paymentStatus, name='paymentStatus'),
+    path('payment-status', views.paymentStatus, name='paymentStatus'),
     path('payment-get-payment/', views.paymentGetPayment,
          name='paymentGetPayment'),
 ]

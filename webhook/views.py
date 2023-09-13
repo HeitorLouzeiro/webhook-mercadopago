@@ -1,5 +1,6 @@
 import json
 import os
+import time
 
 import mercadopago
 from django.http import HttpResponse, JsonResponse
@@ -98,6 +99,8 @@ def paymentStatus(request):
     payment_response = sdk.payment().update(payment_id, payment_data)
     payment = payment_response["response"]
 
+    # time to refresh the page
+    time.sleep(2)
     return redirect('payments')
 
 
