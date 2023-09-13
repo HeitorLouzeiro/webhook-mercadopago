@@ -3,7 +3,7 @@ import os
 
 import mercadopago
 from django.http import HttpResponse, JsonResponse
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.views.decorators.csrf import csrf_exempt
 
 from .models import Notification, Payments
@@ -71,7 +71,7 @@ def methodPix(request):
     )
     paymentsave.save()
 
-    return JsonResponse(payment, safe=False)
+    return redirect('payments')
 
 
 @csrf_exempt
