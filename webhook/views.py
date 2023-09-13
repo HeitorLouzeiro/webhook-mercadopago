@@ -18,6 +18,15 @@ def home(request):
     return render(request, template)
 
 
+def payments(request):
+    template = "webhook/pages/payments.html"
+    payments = Payments.objects.all().order_by('-date_last_updated')
+    context = {
+        "payments": payments
+    }
+    return render(request, template, context)
+
+
 def methodPix(request):
     payment_data = {
         "transaction_amount": 100,
