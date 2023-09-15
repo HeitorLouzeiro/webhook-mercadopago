@@ -33,7 +33,7 @@ def methodPix(request):
         "transaction_amount": 100,
         "description": "Título do produto",
         "payment_method_id": "pix",
-        "notification_url": "https://b19a-45-237-1-170.ngrok-free.app/notification",
+        "notification_url": "https:you-url-ngrok/notification",
         "payer": {
             "email": "UserTest@gmail.com",
             "first_name": "Test",
